@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>「Pandownload」我不是盘神</title>
+    <link href="/2020/04/15/20200417/"/>
+    <url>/2020/04/15/20200417/</url>
+    
+    <content type="html"><![CDATA[<h2 id="我不是盘神"><a href="#我不是盘神" class="headerlink" title="我不是盘神"></a>我不是盘神</h2><p><img src="!%5B%5D(https://github.com/snakeUncle/cloud/img/2020/2020-04-18_000534.png)" srcset="/img/loading.gif" alt="Pandowload"></p><p>“阿sir，求你个事啊。我就是想求求你，别再追查Pandownload了行吗？263块的超级会员svip，我充了三年。房子充没了，现在好不容易有了速度快的，你们非说它是假的。那软件假不假我们能不知道吗？那软件不用花钱，开发者根本没赚钱。谁家能不下载呢，你就能保证你这一辈子不下载吗？你把他抓走了，我们都得2kb/s。我不想慢，我想快点，行吗？”</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Java</category>
+      
+      <category>Tool</category>
+      
+      <category>Pandownload</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Java</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>「Dream」好想快点删掉啊!!!</title>
     <link href="/2020/04/13/%E6%A2%A6%E6%83%B3/"/>
     <url>/2020/04/13/%E6%A2%A6%E6%83%B3/</url>
@@ -190,8 +219,8 @@
   
   <entry>
     <title>「Hexo」将文章发布到hexo博客</title>
-    <link href="/2016/08/05/%E5%B0%86%E6%96%87%E7%AB%A0%E5%8F%91%E5%B8%83%E5%88%B0hexo%E5%8D%9A%E5%AE%A2/"/>
-    <url>/2016/08/05/%E5%B0%86%E6%96%87%E7%AB%A0%E5%8F%91%E5%B8%83%E5%88%B0hexo%E5%8D%9A%E5%AE%A2/</url>
+    <link href="/2018/08/05/%E5%B0%86%E6%96%87%E7%AB%A0%E5%8F%91%E5%B8%83%E5%88%B0hexo%E5%8D%9A%E5%AE%A2/"/>
+    <url>/2018/08/05/%E5%B0%86%E6%96%87%E7%AB%A0%E5%8F%91%E5%B8%83%E5%88%B0hexo%E5%8D%9A%E5%AE%A2/</url>
     
     <content type="html"><![CDATA[<h2 id="将文章发布到hexo博客"><a href="#将文章发布到hexo博客" class="headerlink" title="将文章发布到hexo博客"></a>将文章发布到hexo博客</h2><hr><p>1.将内容写入 markdown.md 文件；然后找到这个md文件，把它复制到你hexo博客文件夹 中 source 下的 _posts 中，默认只有一个 hello-world.md；</p><p>2.复制完之后然后使用文本编辑器打开它，在第一行加上title，内容自定title: this is my first blog  </p><p>3.接着在你博客站点文件夹下右键空白处，选择Git Bash Here，输入 hexo g (完整命令为hexo generate)，用于生成静态文件</p><p>4 然后 输入 hexo s(完整命令为hexo server)，用于启动服务器，主要用来本地预览；完成后 打开浏览器输入 localhost:4000，会发现多了你刚写的那篇博客</p><p>5 最后输入hexo d(hexo deploy)，用于将本地文件发布到github等git仓库上；</p>]]></content>
     
@@ -215,8 +244,8 @@
   
   <entry>
     <title>「Hexo」使用Github Pages+Hexo搭建博客</title>
-    <link href="/2016/08/05/%E4%BD%BF%E7%94%A8Github%20Pages+Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
-    <url>/2016/08/05/%E4%BD%BF%E7%94%A8Github%20Pages+Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
+    <link href="/2018/08/05/%E4%BD%BF%E7%94%A8Github%20Pages+Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
+    <url>/2018/08/05/%E4%BD%BF%E7%94%A8Github%20Pages+Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
     
     <content type="html"><![CDATA[<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p><a href="https://www.jianshu.com/p/856aaace865a" target="_blank" rel="noopener">https://www.jianshu.com/p/856aaace865a</a><br><a href="https://www.jianshu.com/p/7dcd97c8e0e3" target="_blank" rel="noopener">https://www.jianshu.com/p/7dcd97c8e0e3</a></p>]]></content>
     
@@ -244,8 +273,8 @@
   
   <entry>
     <title>「Tool」常用工具汇总</title>
-    <link href="/2016/06/18/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E6%B1%87%E6%80%BB/"/>
-    <url>/2016/06/18/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E6%B1%87%E6%80%BB/</url>
+    <link href="/2018/06/18/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E6%B1%87%E6%80%BB/"/>
+    <url>/2018/06/18/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E6%B1%87%E6%80%BB/</url>
     
     <content type="html"><![CDATA[<p><img src="/img/example.jpg" srcset="/img/loading.gif" alt=""></p><h2 id="「Tool」常用工具汇总"><a href="#「Tool」常用工具汇总" class="headerlink" title="「Tool」常用工具汇总"></a>「Tool」常用工具汇总</h2><p><strong>PC:(何必来回折腾,工具而已)</strong></p><ol><li><p>IDEA(吃饭的家伙)</p></li><li><p>VsCode</p></li><li><p>VM</p></li><li><p>火绒</p></li><li><p>Everthing</p></li><li><p>Listary(搜索神器)</p></li><li><p>Edge/360急速浏览器</p></li><li><p>Xmind</p></li><li><p>印象笔记/OneNote</p></li><li><p>腾讯桌面整理</p></li><li><p>Foxit Reader</p><p><strong>推荐:</strong></p><p> <a href="https://mp.weixin.qq.com/s/zyBzWj0lCvQEYGK4AWCkAA" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/zyBzWj0lCvQEYGK4AWCkAA</a></p></li></ol><hr>]]></content>
     
