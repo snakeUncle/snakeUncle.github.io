@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="蛇叔">
+  <meta name="keywords" content="">
+  <title>day04 【Map】 - 大蛇的巢穴</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css" />
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+
+  <link  rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css" />
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/bilibili.css#%20%E6%8C%87%E5%AE%9A%E8%87%AA%E5%AE%9A%E4%B9%89%20css%20%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84%EF%BC%8C%E8%B7%AF%E5%BE%84%E6%98%AF%E7%9B%B8%E5%AF%B9%20source%20%E7%9B%AE%E5%BD%95%EF%BC%8C%E5%A6%82%20/css/custom.css">
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>大蛇的巢穴</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">音忍村</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">者之书</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">分类</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">标签</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">关于</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/post_banner.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+                <p class="mt-3 post-meta">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                  Saturday, April 15th 2017, 12:01 pm
+                </p>
+              
+
+              <p class="mt-1">
+                
+                  
+                  <span class="post-meta">
+                    <i class="far fa-chart-bar"></i>
+                    4.3k 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta">
+                      <i class="far fa-clock"></i>
+                      18 分钟
+                  </span>
+                
+
+                
+              </p>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5 z-depth-3" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <div class="markdown-body">
+              <h1 id="day04-【Map】"><a href="#day04-【Map】" class="headerlink" title="day04 【Map】"></a>day04 【Map】</h1><h2 id="主要内容"><a href="#主要内容" class="headerlink" title="主要内容"></a>主要内容</h2><ul>
+<li>Map集合</li>
+</ul>
+<h2 id="教学目标"><a href="#教学目标" class="headerlink" title="教学目标"></a>教学目标</h2><ul>
+<li><input disabled="" type="checkbox"> 能够说出Map集合特点</li>
+<li><input disabled="" type="checkbox"> 使用Map集合添加方法保存数据</li>
+<li><input disabled="" type="checkbox"> 使用”键找值”的方式遍历Map集合</li>
+<li><input disabled="" type="checkbox"> 使用”键值对”的方式遍历Map集合</li>
+<li><input disabled="" type="checkbox"> 能够使用HashMap存储自定义键值对的数据</li>
+<li><input disabled="" type="checkbox"> 能够使用HashMap编写斗地主洗牌发牌案例</li>
+</ul>
+<h1 id="第一章-Map集合"><a href="#第一章-Map集合" class="headerlink" title="第一章 Map集合"></a>第一章 Map集合</h1><h2 id="1-1-概述"><a href="#1-1-概述" class="headerlink" title="1.1 概述"></a>1.1 概述</h2><p>现实生活中，我们常会看到这样的一种集合：IP地址与主机名，身份证号与个人，系统用户名与系统用户对象等，这种一一对应的关系，就叫做映射。Java提供了专门的集合类用来存放这种对象关系的对象，即<code>java.util.Map</code>接口。</p>
+<p>我们通过查看<code>Map</code>接口描述，发现<code>Map</code>接口下的集合与<code>Collection</code>接口下的集合，它们存储数据的形式不同，如下图。</p>
+<p><img src="img%5CCollection%E4%B8%8EMap.bmp" srcset="/img/loading.gif" alt=""></p>
+<ul>
+<li><code>Collection</code>中的集合，元素是孤立存在的（理解为单身），向集合中存储元素采用一个个元素的方式存储。</li>
+<li><code>Map</code>中的集合，元素是成对存在的(理解为夫妻)。每个元素由键与值两部分组成，通过键可以找对所对应的值。</li>
+<li><code>Collection</code>中的集合称为单列集合，<code>Map</code>中的集合称为双列集合。</li>
+<li>需要注意的是，<code>Map</code>中的集合不能包含重复的键，值可以重复；每个键只能对应一个值。</li>
+</ul>
+<h2 id="1-2-Map常用子类"><a href="#1-2-Map常用子类" class="headerlink" title="1.2  Map常用子类"></a>1.2  Map常用子类</h2><p>通过查看Map接口描述，看到Map有多个子类，这里我们主要讲解常用的HashMap集合、LinkedHashMap集合。</p>
+<ul>
+<li><strong>HashMap&lt;K,V&gt;</strong>：存储数据采用的哈希表结构，元素的存取顺序不能保证一致。由于要保证键的唯一、不重复，需要重写键的hashCode()方法、equals()方法。</li>
+<li><strong>LinkedHashMap&lt;K,V&gt;</strong>：HashMap下有个子类LinkedHashMap，存储数据采用的哈希表结构+链表结构。通过链表结构可以保证元素的存取顺序一致；通过哈希表结构可以保证的键的唯一、不重复，需要重写键的hashCode()方法、equals()方法。</li>
+</ul>
+<blockquote>
+<p>tips：Map接口中的集合都有两个泛型变量&lt;K,V&gt;,在使用时，要为两个泛型变量赋予数据类型。两个泛型变量&lt;K,V&gt;的数据类型可以相同，也可以不同。</p>
+</blockquote>
+<h2 id="1-3-Map接口中的常用方法"><a href="#1-3-Map接口中的常用方法" class="headerlink" title="1.3  Map接口中的常用方法"></a>1.3  Map接口中的常用方法</h2><p>Map接口中定义了很多方法，常用的如下：</p>
+<ul>
+<li><code>public V put(K key, V value)</code>:  把指定的键与指定的值添加到Map集合中。</li>
+<li><code>public V remove(Object key)</code>: 把指定的键 所对应的键值对元素 在Map集合中删除，返回被删除元素的值。</li>
+<li><code>public V get(Object key)</code> 根据指定的键，在Map集合中获取对应的值。</li>
+<li><code>boolean containsKey(Object key)</code> 判断集合中是否包含指定的键。</li>
+<li><code>public Set&lt;K&gt; keySet()</code>: 获取Map集合中所有的键，存储到Set集合中。</li>
+<li><code>public Set&lt;Map.Entry&lt;K,V&gt;&gt; entrySet()</code>: 获取到Map集合中所有的键值对对象的集合(Set集合)。</li>
+</ul>
+<p>Map接口的方法演示</p>
+<pre><code class="java">public class MapDemo {
+    public static void main(String[] args) {
+        //创建 map对象
+        HashMap&lt;String, String&gt;  map = new HashMap&lt;String, String&gt;();
+
+        //添加元素到集合
+        map.put(&quot;黄晓明&quot;, &quot;杨颖&quot;);
+        map.put(&quot;文章&quot;, &quot;马伊琍&quot;);
+        map.put(&quot;邓超&quot;, &quot;孙俪&quot;);
+        System.out.println(map);
+
+        //String remove(String key)
+        System.out.println(map.remove(&quot;邓超&quot;));
+        System.out.println(map);
+
+        // 想要查看 黄晓明的媳妇 是谁
+        System.out.println(map.get(&quot;黄晓明&quot;));
+        System.out.println(map.get(&quot;邓超&quot;));    
+    }
+}</code></pre>
+<blockquote>
+<p>tips:</p>
+<p>使用put方法时，若指定的键(key)在集合中没有，则没有这个键对应的值，返回null，并把指定的键值添加到集合中； </p>
+<p>若指定的键(key)在集合中存在，则返回值为集合中键对应的值（该值为替换前的值），并把指定键所对应的值，替换成指定的新值。 </p>
+</blockquote>
+<h2 id="1-4-Map集合遍历键找值方式"><a href="#1-4-Map集合遍历键找值方式" class="headerlink" title="1.4   Map集合遍历键找值方式"></a>1.4   Map集合遍历键找值方式</h2><p>键找值方式：即通过元素中的键，获取键所对应的值</p>
+<p>分析步骤：</p>
+<ol>
+<li>获取Map中所有的键，由于键是唯一的，所以返回一个Set集合存储所有的键。方法提示:<code>keyset()</code></li>
+<li>遍历键的Set集合，得到每一个键。</li>
+<li>根据键，获取键所对应的值。方法提示:<code>get(K key)</code></li>
+</ol>
+<p>代码演示：</p>
+<pre><code class="java">public class MapDemo01 {
+    public static void main(String[] args) {
+        //创建Map集合对象 
+        HashMap&lt;String, String&gt; map = new HashMap&lt;String,String&gt;();
+        //添加元素到集合 
+        map.put(&quot;胡歌&quot;, &quot;霍建华&quot;);
+        map.put(&quot;郭德纲&quot;, &quot;于谦&quot;);
+        map.put(&quot;薛之谦&quot;, &quot;大张伟&quot;);
+
+        //获取所有的键  获取键集
+        Set&lt;String&gt; keys = map.keySet();
+        // 遍历键集 得到 每一个键
+        for (String key : keys) {
+              //key  就是键
+            //获取对应值
+            String value = map.get(key);
+            System.out.println(key+&quot;的CP是：&quot;+value);
+        }  
+    }
+}</code></pre>
+<p>遍历图解：</p>
+<p><img src="img%5CMap%E9%9B%86%E5%90%88%E9%81%8D%E5%8E%86%E6%96%B9%E5%BC%8F%E4%B8%80.bmp" srcset="/img/loading.gif" alt=""></p>
+<h2 id="1-5-Entry键值对对象"><a href="#1-5-Entry键值对对象" class="headerlink" title="1.5  Entry键值对对象"></a>1.5  Entry键值对对象</h2><p>我们已经知道，<code>Map</code>中存放的是两种对象，一种称为<strong>key</strong>(键)，一种称为<strong>value</strong>(值)，它们在在<code>Map</code>中是一一对应关系，这一对对象又称做<code>Map</code>中的一个<code>Entry(项)</code>。<code>Entry</code>将键值对的对应关系封装成了对象。即键值对对象，这样我们在遍历<code>Map</code>集合时，就可以从每一个键值对（<code>Entry</code>）对象中获取对应的键与对应的值。</p>
+<p> 既然Entry表示了一对键和值，那么也同样提供了获取对应键和对应值得方法：</p>
+<ul>
+<li><code>public K getKey()</code>：获取Entry对象中的键。</li>
+<li><code>public V getValue()</code>：获取Entry对象中的值。</li>
+</ul>
+<p>在Map集合中也提供了获取所有Entry对象的方法：</p>
+<ul>
+<li><code>public Set&lt;Map.Entry&lt;K,V&gt;&gt; entrySet()</code>: 获取到Map集合中所有的键值对对象的集合(Set集合)。</li>
+</ul>
+<h2 id="1-6-Map集合遍历键值对方式"><a href="#1-6-Map集合遍历键值对方式" class="headerlink" title="1.6 Map集合遍历键值对方式"></a>1.6 Map集合遍历键值对方式</h2><p>键值对方式：即通过集合中每个键值对(Entry)对象，获取键值对(Entry)对象中的键与值。</p>
+<p>操作步骤与图解：</p>
+<ol>
+<li><p>获取Map集合中，所有的键值对(Entry)对象，以Set集合形式返回。方法提示:<code>entrySet()</code>。</p>
+</li>
+<li><p>遍历包含键值对(Entry)对象的Set集合，得到每一个键值对(Entry)对象。</p>
+</li>
+<li><p>通过键值对(Entry)对象，获取Entry对象中的键与值。  方法提示:<code>getkey() getValue()</code>     </p>
+</li>
+</ol>
+<pre><code class="java">public class MapDemo02 {
+    public static void main(String[] args) {
+        // 创建Map集合对象 
+        HashMap&lt;String, String&gt; map = new HashMap&lt;String,String&gt;();
+        // 添加元素到集合 
+        map.put(&quot;胡歌&quot;, &quot;霍建华&quot;);
+        map.put(&quot;郭德纲&quot;, &quot;于谦&quot;);
+        map.put(&quot;薛之谦&quot;, &quot;大张伟&quot;);
+
+        // 获取 所有的 entry对象  entrySet
+        Set&lt;Entry&lt;String,String&gt;&gt; entrySet = map.entrySet();
+
+        // 遍历得到每一个entry对象
+        for (Entry&lt;String, String&gt; entry : entrySet) {
+               // 解析 
+            String key = entry.getKey();
+            String value = entry.getValue();  
+            System.out.println(key+&quot;的CP是:&quot;+value);
+        }
+    }
+}</code></pre>
+<p>遍历图解：</p>
+<p><img src="img%5CMap%E9%9B%86%E5%90%88%E9%81%8D%E5%8E%86%E6%96%B9%E5%BC%8F%E4%BA%8C.bmp" srcset="/img/loading.gif" alt=""></p>
+<blockquote>
+<p>tips：Map集合不能直接使用迭代器或者foreach进行遍历。但是转成Set之后就可以使用了。</p>
+</blockquote>
+<h2 id="1-7-HashMap存储自定义类型键值"><a href="#1-7-HashMap存储自定义类型键值" class="headerlink" title="1.7  HashMap存储自定义类型键值"></a>1.7  HashMap存储自定义类型键值</h2><p>练习：每位学生（姓名，年龄）都有自己的家庭住址。那么，既然有对应关系，则将学生对象和家庭住址存储到map集合中。学生作为键, 家庭住址作为值。</p>
+<blockquote>
+<p>注意，学生姓名相同并且年龄相同视为同一名学生。</p>
+</blockquote>
+<p>编写学生类：</p>
+<pre><code class="java">public class Student {
+    private String name;
+    private int age;
+
+    public Student() {
+    }
+
+    public Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        Student student = (Student) o;
+        return age == student.age &amp;&amp; Objects.equals(name, student.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, age);
+    }
+}</code></pre>
+<p>编写测试类：</p>
+<pre><code class="java">public class HashMapTest {
+    public static void main(String[] args) {
+        //1,创建Hashmap集合对象。
+        Map&lt;Student,String&gt;map = new HashMap&lt;Student,String&gt;();
+        //2,添加元素。
+        map.put(newStudent(&quot;lisi&quot;,28), &quot;上海&quot;);
+        map.put(newStudent(&quot;wangwu&quot;,22), &quot;北京&quot;);
+        map.put(newStudent(&quot;zhaoliu&quot;,24), &quot;成都&quot;);
+        map.put(newStudent(&quot;zhouqi&quot;,25), &quot;广州&quot;);
+        map.put(newStudent(&quot;wangwu&quot;,22), &quot;南京&quot;);
+
+        //3,取出元素。键找值方式
+        Set&lt;Student&gt;keySet = map.keySet();
+        for(Student key: keySet){
+            Stringvalue = map.get(key);
+            System.out.println(key.toString()+&quot;.....&quot;+value);
+        }
+    }
+}</code></pre>
+<ul>
+<li>当给HashMap中存放自定义对象时，如果自定义对象作为key存在，这时要保证对象唯一，必须复写对象的hashCode和equals方法(如果忘记，请回顾HashSet存放自定义对象)。</li>
+<li>如果要保证map中存放的key和取出的顺序一致，可以使用<code>java.util.LinkedHashMap</code>集合来存放。</li>
+</ul>
+<h2 id="1-8-LinkedHashMap"><a href="#1-8-LinkedHashMap" class="headerlink" title="1.8   LinkedHashMap"></a>1.8   LinkedHashMap</h2><p>我们知道HashMap保证成对元素唯一，并且查询速度很快，可是成对元素存放进去是没有顺序的，那么我们要保证有序，还要速度快怎么办呢？</p>
+<p>在HashMap下面有一个子类LinkedHashMap，它是链表和哈希表组合的一个数据存储结构。</p>
+<pre><code class="java">public class LinkedHashMapDemo {
+    public static void main(String[] args) {
+        LinkedHashMap&lt;String, String&gt; map = new LinkedHashMap&lt;String, String&gt;();
+        map.put(&quot;邓超&quot;, &quot;孙俪&quot;);
+        map.put(&quot;李晨&quot;, &quot;范冰冰&quot;);
+        map.put(&quot;刘德华&quot;, &quot;朱丽倩&quot;);
+        Set&lt;Entry&lt;String, String&gt;&gt; entrySet = map.entrySet();
+        for (Entry&lt;String, String&gt; entry : entrySet) {
+            System.out.println(entry.getKey() + &quot;  &quot; + entry.getValue());
+        }
+    }
+}</code></pre>
+<p>结果:</p>
+<pre><code>邓超  孙俪
+李晨  范冰冰
+刘德华  朱丽倩</code></pre><h2 id="1-9-Map集合练习"><a href="#1-9-Map集合练习" class="headerlink" title="1.9 Map集合练习"></a>1.9 Map集合练习</h2><p><strong>需求：</strong></p>
+<p>计算一个字符串中每个字符出现次数。</p>
+<p><strong>分析：</strong></p>
+<ol>
+<li>获取一个字符串对象</li>
+<li>创建一个Map集合，键代表字符，值代表次数。</li>
+<li>遍历字符串得到每个字符。</li>
+<li>判断Map中是否有该键。</li>
+<li>如果没有，第一次出现，存储次数为1；如果有，则说明已经出现过，获取到对应的值进行++，再次存储。     </li>
+<li>打印最终结果</li>
+</ol>
+<p><strong>代码：</strong></p>
+<pre><code class="java">public class MapTest {
+public static void main(String[] args) {
+        //友情提示
+        System.out.println(&quot;请录入一个字符串:&quot;);
+        String line = new Scanner(System.in).nextLine();
+        // 定义 每个字符出现次数的方法
+        findChar(line);
+    }
+    private static void findChar(String line) {
+        //1:创建一个集合 存储  字符 以及其出现的次数
+        HashMap&lt;Character, Integer&gt; map = new HashMap&lt;Character, Integer&gt;();
+        //2:遍历字符串
+        for (int i = 0; i &lt; line.length(); i++) {
+            char c = line.charAt(i);
+            //判断 该字符 是否在键集中
+            if (!map.containsKey(c)) {//说明这个字符没有出现过
+                //那就是第一次
+                map.put(c, 1);
+            } else {
+                //先获取之前的次数
+                Integer count = map.get(c);
+                //count++;
+                //再次存入  更新
+                map.put(c, ++count);
+            }
+        }
+        System.out.println(map);
+    }
+}</code></pre>
+<h1 id="第二章-补充知识点"><a href="#第二章-补充知识点" class="headerlink" title="第二章 补充知识点"></a>第二章 补充知识点</h1><h2 id="2-1-JDK9对集合添加的优化"><a href="#2-1-JDK9对集合添加的优化" class="headerlink" title="2.1  JDK9对集合添加的优化"></a>2.1  JDK9对集合添加的优化</h2><p>通常，我们在代码中创建一个集合（例如，List 或 Set ），并直接用一些元素填充它。 实例化集合，几个 add方法 调用，使得代码重复。</p>
+<pre><code class="java">public class Demo01 {
+    public static void main(String[] args) {
+        List&lt;String&gt; list = new ArrayList&lt;&gt;();
+        list.add(&quot;abc&quot;);
+        list.add(&quot;def&quot;);
+        list.add(&quot;ghi&quot;);
+        System.out.println(list);
+    }
+}</code></pre>
+<p> Java 9，添加了几种集合工厂方法,更方便创建少量元素的集合、map实例。新的List、Set、Map的静态工厂方法可以更方便地创建集合的不可变实例。</p>
+<p>例子：</p>
+<pre><code class="java">public class HelloJDK9 {  
+    public static void main(String[] args) {  
+        Set&lt;String&gt; str1=Set.of(&quot;a&quot;,&quot;b&quot;,&quot;c&quot;);  
+        //str1.add(&quot;c&quot;);这里编译的时候不会错，但是执行的时候会报错，因为是不可变的集合  
+        System.out.println(str1);  
+        Map&lt;String,Integer&gt; str2=Map.of(&quot;a&quot;,1,&quot;b&quot;,2);  
+        System.out.println(str2);  
+        List&lt;String&gt; str3=List.of(&quot;a&quot;,&quot;b&quot;);  
+        System.out.println(str3);  
+    }  
+} </code></pre>
+<p>需要注意以下两点：</p>
+<blockquote>
+<p>1:of()方法只是Map，List，Set这三个接口的静态方法，其父类接口和子类实现并没有这类方法，比如    HashSet，ArrayList等待；</p>
+<p>2:返回的集合是不可变的；</p>
+</blockquote>
+<h2 id="2-2-Debug追踪"><a href="#2-2-Debug追踪" class="headerlink" title="2.2 Debug追踪"></a>2.2 Debug追踪</h2><p><strong>使用IDEA的断点调试功能，查看程序的运行过程</strong></p>
+<ol>
+<li><p>在有效代码行，点击行号右边的空白区域，设置断点，程序执行到断点将停止，我们可以手动来运行程序     </p>
+<p>   <img src="img/debug1.png" srcset="/img/loading.gif" alt=""></p>
+</li>
+<li><p>点击Debug运行模式       <img src="img%5Cdebug2.png" srcset="/img/loading.gif" alt="">                                                                                                                                                                      </p>
+</li>
+<li><p>程序停止在断点上不再执行，而IDEA最下方打开了Debug调试窗口  </p>
+<p> <img src="img%5Cdebug3.png" srcset="/img/loading.gif" alt="">)<img src="img%5Cdebug4.png" srcset="/img/loading.gif" alt=""></p>
+</li>
+<li><p>Debug调试窗口介绍</p>
+<p> <img src="img%5Cdebug5.png" srcset="/img/loading.gif" alt=""></p>
+</li>
+<li><p>快捷键F8，代码向下执行一行,第九行执行完毕，执行到第10行（第10行还未执行）</p>
+<p><img src="img%5Cdebug6.png" srcset="/img/loading.gif" alt=""></p>
+</li>
+<li><p>切换到控制台面板，控制台显示 请录入一个字符串： 并且等待键盘录入</p>
+<p><img src="img%5Cdebug7.png" srcset="/img/loading.gif" alt=""></p>
+</li>
+<li><p>快捷键F8，程序继续向后执行，执行键盘录入操作，在控制台录入数据 ababcea</p>
+<p><img src="img%5Cdebug8.png" srcset="/img/loading.gif" alt=""></p>
+<p>回车之后效果：<img src="img%5Cdebug9.png" srcset="/img/loading.gif" alt=""></p>
+<p>调试界面效果：<img src="img%5Cdebug0.png" srcset="/img/loading.gif" alt=""></p>
+</li>
+<li><p>此时到达findChar方法，快捷键F7，进入方法findChar</p>
+<p><img src="img%5Cdebug11.png" srcset="/img/loading.gif" alt=""></p>
+</li>
+<li><p>快捷键F8 接续执行，创建了map对象，变量区域显示</p>
+<p><img src="img%5Cdebug12.png" srcset="/img/loading.gif" alt=""></p>
+</li>
+<li><p>快捷键F8 接续执行，进入到循环中，循环变量i为 0,F8再继续执行，就获取到变量c赋值为字符‘a’ 字节值97</p>
+<p><img src="img%5Cdebug13.png" srcset="/img/loading.gif" alt=""></p>
+</li>
+<li><p>快捷键F8 接续执行，进入到判断语句中，因为该字符 不在Map集合键集中，再按F8执行，进入该判断中</p>
+<p><img src="img%5Cdebug14.png" srcset="/img/loading.gif" alt=""></p>
+</li>
+<li><p>快捷键F8 接续执行，循环结束，进入下次循环，此时map中已经添加一对儿元素</p>
+<p><img src="img%5Cdebug15.png" srcset="/img/loading.gif" alt=""></p>
+</li>
+<li><p>快捷键F8 接续执行，进入下次循环，再继续上面的操作，我们就可以看到代码每次是如何执行的了</p>
+<p><img src="img%5Cdebug16.png" srcset="/img/loading.gif" alt=""></p>
+</li>
+<li><p>如果不想继续debug,那么可以使用快捷键F9,程序正常执行到结束，程序结果在控制台显示</p>
+<p><img src="img%5Cdebug17.png" srcset="/img/loading.gif" alt=""></p>
+</li>
+</ol>
+<h1 id="第三章-模拟斗地主洗牌发牌"><a href="#第三章-模拟斗地主洗牌发牌" class="headerlink" title="第三章  模拟斗地主洗牌发牌"></a>第三章  模拟斗地主洗牌发牌</h1><h2 id="3-1-案例介绍"><a href="#3-1-案例介绍" class="headerlink" title="3.1 案例介绍"></a>3.1 案例介绍</h2><p>按照斗地主的规则，完成洗牌发牌的动作。</p>
+<p><img src="img%5C%E6%96%97%E5%9C%B0%E4%B8%BB.png" srcset="/img/loading.gif" alt=""></p>
+<p>具体规则：</p>
+<ol>
+<li>组装54张扑克牌将</li>
+<li>54张牌顺序打乱</li>
+<li>三个玩家参与游戏，三人交替摸牌，每人17张牌，最后三张留作底牌。</li>
+<li>查看三人各自手中的牌（按照牌的大小排序）、底牌</li>
+</ol>
+<blockquote>
+<p>规则：手中扑克牌从大到小的摆放顺序：大王,小王,2,A,K,Q,J,10,9,8,7,6,5,4,3</p>
+</blockquote>
+<h2 id="3-2-案例需求分析"><a href="#3-2-案例需求分析" class="headerlink" title="3.2 案例需求分析"></a>3.2 案例需求分析</h2><ol>
+<li>准备牌：</li>
+</ol>
+<p>完成数字与纸牌的映射关系：</p>
+<p>使用双列Map(HashMap)集合，完成一个数字与字符串纸牌的对应关系(相当于一个字典)。</p>
+<ol start="2">
+<li>洗牌：</li>
+</ol>
+<p>通过数字完成洗牌发牌</p>
+<ol start="3">
+<li>发牌：</li>
+</ol>
+<p>将每个人以及底牌设计为ArrayList<String>,将最后3张牌直接存放于底牌，剩余牌通过对3取模依次发牌。</p>
+<p>存放的过程中要求数字大小与斗地主规则的大小对应。</p>
+<p>将代表不同纸牌的数字分配给不同的玩家与底牌。</p>
+<ol start="4">
+<li>看牌：</li>
+</ol>
+<p>通过Map集合找到对应字符展示。</p>
+<p>通过查询纸牌与数字的对应关系，由数字转成纸牌字符串再进行展示。</p>
+<p><img src="img%5C%E6%96%97%E5%9C%B0%E4%B8%BB%E5%88%86%E6%9E%90.png" srcset="/img/loading.gif" alt=""></p>
+<h2 id="3-3-实现代码步骤"><a href="#3-3-实现代码步骤" class="headerlink" title="3.3  实现代码步骤"></a>3.3  实现代码步骤</h2><pre><code class="java">public class Poker {
+    public static void main(String[] args) {
+        /*
+         * 1组装54张扑克牌
+         */
+        // 1.1 创建Map集合存储
+        HashMap&lt;Integer, String&gt; pokerMap = new HashMap&lt;Integer, String&gt;();
+        // 1.2 创建 花色集合 与 数字集合
+        ArrayList&lt;String&gt; colors = new ArrayList&lt;String&gt;();
+        ArrayList&lt;String&gt; numbers = new ArrayList&lt;String&gt;();
+
+        // 1.3 存储 花色 与数字
+        Collections.addAll(colors, &quot;♦&quot;, &quot;♣&quot;, &quot;♥&quot;, &quot;♠&quot;);
+        Collections.addAll(numbers, &quot;2&quot;, &quot;A&quot;, &quot;K&quot;, &quot;Q&quot;, &quot;J&quot;, &quot;10&quot;, &quot;9&quot;, &quot;8&quot;, &quot;7&quot;, &quot;6&quot;, &quot;5&quot;, &quot;4&quot;, &quot;3&quot;);
+        // 设置 存储编号变量
+        int count = 1;
+        pokerMap.put(count++, &quot;大王&quot;);
+        pokerMap.put(count++, &quot;小王&quot;);
+        // 1.4 创建牌 存储到map集合中
+        for (String number : numbers) {
+            for (String color : colors) {
+                String card = color + number;
+                pokerMap.put(count++, card);
+            }
+        }
+        /*
+         * 2 将54张牌顺序打乱
+         */
+        // 取出编号 集合
+        Set&lt;Integer&gt; numberSet = pokerMap.keySet();
+        // 因为要将编号打乱顺序 所以 应该先进行转换到 list集合中
+        ArrayList&lt;Integer&gt; numberList = new ArrayList&lt;Integer&gt;();
+        numberList.addAll(numberSet);
+
+        // 打乱顺序
+        Collections.shuffle(numberList);
+
+        // 3 完成三个玩家交替摸牌，每人17张牌，最后三张留作底牌
+        // 3.1 发牌的编号
+        // 创建三个玩家编号集合 和一个 底牌编号集合
+        ArrayList&lt;Integer&gt; noP1 = new ArrayList&lt;Integer&gt;();
+        ArrayList&lt;Integer&gt; noP2 = new ArrayList&lt;Integer&gt;();
+        ArrayList&lt;Integer&gt; noP3 = new ArrayList&lt;Integer&gt;();
+        ArrayList&lt;Integer&gt; dipaiNo = new ArrayList&lt;Integer&gt;();
+
+        // 3.2发牌的编号
+        for (int i = 0; i &lt; numberList.size(); i++) {
+            // 获取该编号
+            Integer no = numberList.get(i);
+            // 发牌
+            // 留出底牌
+            if (i &gt;= 51) {
+                dipaiNo.add(no);
+            } else {
+                if (i % 3 == 0) {
+                    noP1.add(no);
+                } else if (i % 3 == 1) {
+                    noP2.add(no);
+                } else {
+                    noP3.add(no);
+                }
+            }
+        }
+
+        // 4 查看三人各自手中的牌（按照牌的大小排序）、底牌
+        // 4.1 对手中编号进行排序
+        Collections.sort(noP1);
+        Collections.sort(noP2);
+        Collections.sort(noP3);
+        Collections.sort(dipaiNo);
+
+        // 4.2 进行牌面的转换
+        // 创建三个玩家牌面集合 以及底牌牌面集合
+        ArrayList&lt;String&gt; player1 = new ArrayList&lt;String&gt;();
+        ArrayList&lt;String&gt; player2 = new ArrayList&lt;String&gt;();
+        ArrayList&lt;String&gt; player3 = new ArrayList&lt;String&gt;();
+        ArrayList&lt;String&gt; dipai = new ArrayList&lt;String&gt;();
+
+        // 4.3转换
+        for (Integer i : noP1) {
+            // 4.4 根据编号找到 牌面 pokerMap
+            String card = pokerMap.get(i);
+            // 添加到对应的 牌面集合中
+            player1.add(card);
+        }
+
+        for (Integer i : noP2) {
+            String card = pokerMap.get(i);
+            player2.add(card);
+        }
+        for (Integer i : noP3) {
+            String card = pokerMap.get(i);
+            player3.add(card);
+        }
+        for (Integer i : dipaiNo) {
+            String card = pokerMap.get(i);
+            dipai.add(card);
+        }
+
+        //4.5 查看
+        System.out.println(&quot;令狐冲：&quot;+player1);
+        System.out.println(&quot;石破天：&quot;+player2);
+        System.out.println(&quot;鸠摩智：&quot;+player3);
+        System.out.println(&quot;底牌：&quot;+dipai);
+    }
+}</code></pre>
+
+            </div>
+            <hr>
+            <div>
+              <p>
+                
+                  <span>
+                <i class="iconfont icon-inbox"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Java/">Java</a>
+                      &nbsp;
+                    
+                      <a class="hover-with-bg" href="/categories/Java/lamda/">lamda</a>
+                      &nbsp;
+                    
+                  </span>&nbsp;&nbsp;
+                
+                
+                  <span>
+                <i class="iconfont icon-tag"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Java/">Java</a>
+                    
+                  </span>
+                
+              </p>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2017/04/18/day05%20%E3%80%90%E5%BC%82%E5%B8%B8%E3%80%81%E7%BA%BF%E7%A8%8B%E3%80%91/">
+                        <i class="fa fa-chevron-left"></i>
+                        <span class="hidden-mobile">day05 【异常、线程】</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2017/04/05/day03%E3%80%90List%E3%80%81Set%E3%80%91/">
+                        <span class="hidden-mobile">day03【List、Set】</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="fa fa-chevron-right"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+              
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc-start"></div>
+<div id="toc">
+  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+      <i class="iconfont icon-love"></i>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener">陕ICP备20005151号-1</a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
+<script  src="/js/main.js" ></script>
+
+
+  <script  src="/js/lazyload.js" ></script>
+
+
+
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var navHeight = $('#navbar').height();
+      var toc = $('#toc');
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+      var tocLimMax = 2 * boardTop + boardCtn.height();
+
+      $(window).scroll(function () {
+        var tocLimMin = $('#toc-start').offset().top - navHeight;
+        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
+
+        if (tocLimMin <= scroH && scroH <= tocLimMax) {
+          toc.css({
+            'display': 'block',
+            'position': 'fixed',
+            'top': navHeight,
+          });
+        } else if (scroH <= tocLimMin) {
+          toc.css({
+            'position': '',
+            'top': '',
+          });
+        } else if (scroH > tocLimMax) {
+          toc.css('display', 'none');
+        }
+      });
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc > p').css('visibility', 'visible');
+      }
+      var offset = boardCtn.css('margin-right')
+      $('#toc-ctn').css({
+        'right': offset
+      })
+    });
+  </script>
+
+
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+
+<!-- Plugins -->
+
+
+
+  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "day04 【Map】&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

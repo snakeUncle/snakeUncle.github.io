@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="蛇叔">
+  <meta name="keywords" content="">
+  <title>day06 【线程、同步】教案 - 大蛇的巢穴</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css" />
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+
+  <link  rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css" />
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/bilibili.css#%20%E6%8C%87%E5%AE%9A%E8%87%AA%E5%AE%9A%E4%B9%89%20css%20%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84%EF%BC%8C%E8%B7%AF%E5%BE%84%E6%98%AF%E7%9B%B8%E5%AF%B9%20source%20%E7%9B%AE%E5%BD%95%EF%BC%8C%E5%A6%82%20/css/custom.css">
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>大蛇的巢穴</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">音忍村</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">者之书</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">分类</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">标签</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">关于</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/post_banner.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+                <p class="mt-3 post-meta">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                  Wednesday, April 19th 2017, 2:01 am
+                </p>
+              
+
+              <p class="mt-1">
+                
+                  
+                  <span class="post-meta">
+                    <i class="far fa-chart-bar"></i>
+                    3k 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta">
+                      <i class="far fa-clock"></i>
+                      11 分钟
+                  </span>
+                
+
+                
+              </p>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5 z-depth-3" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <div class="markdown-body">
+              <h1 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h1><h3 id="一、学习目标"><a href="#一、学习目标" class="headerlink" title="一、学习目标"></a>一、学习目标</h3><ol>
+<li>能够描述Java中多线程运行原理</li>
+<li>能够使用继承类的方式创建多线程</li>
+<li>能够使用实现接口的方式创建多线程</li>
+<li>能够说出实现接口方式的好处</li>
+<li>能够解释安全问题的出现的原因</li>
+<li>能够使用同步代码块解决线程安全问题</li>
+<li>能够使用同步方法解决线程安全问题</li>
+<li>能够说出线程6个状态的名称</li>
+</ol>
+<h3 id="二、学习指南"><a href="#二、学习指南" class="headerlink" title="二、学习指南"></a>二、学习指南</h3><ol>
+<li>线程程序的随机性&amp;开启线程的第二种方式</li>
+<li>开启线程两种方式的区别</li>
+<li>线程安全问题&amp;同步技术</li>
+<li>线程状态&amp;线程通讯</li>
+</ol>
+<h3 id="第一堂课"><a href="#第一堂课" class="headerlink" title="第一堂课"></a>第一堂课</h3><p>本节知识点</p>
+<p>01_今日内容介绍</p>
+<p>02_多线程原理_随机性打印结果</p>
+<p>03_多线程原理_多线程内存图解</p>
+<p>04_Thread类的常用方法_获取线程名称的方法</p>
+<p>05_Thread类的常用方法_设置线程名称的方法</p>
+<p>视频时间</p>
+<p> 27分33秒</p>
+<p>本节目标</p>
+<p> 了解今天所学内容</p>
+<p> 理解多线程程序的随机性</p>
+<p> 了解多线程程序在内存中的基本划分</p>
+<p> 掌握获取线程名称的两种方式</p>
+<p> 掌握设置线程名称的两种方式</p>
+<p>1.</p>
+<ol>
+<li>1.1 今日内容介绍</li>
+</ol>
+<h5 id="1-1-1知识概述"><a href="#1-1-1知识概述" class="headerlink" title="1.1.1知识概述"></a>1.1.1知识概述</h5><p>今日内容介绍</p>
+<h5 id="1-1-2视频详情"><a href="#1-1-2视频详情" class="headerlink" title="1.1.2视频详情"></a>1.1.2视频详情</h5><p>无</p>
+<h5 id="1-1-3总结与补充"><a href="#1-1-3总结与补充" class="headerlink" title="1.1.3总结与补充"></a>1.1.3总结与补充</h5><p>无</p>
+<h5 id="1-1-4课堂提问与练习"><a href="#1-1-4课堂提问与练习" class="headerlink" title="1.1.4课堂提问与练习"></a>1.1.4课堂提问与练习</h5><p>无</p>
+<h5 id="1-1-5习题答案"><a href="#1-1-5习题答案" class="headerlink" title="1.1.5习题答案"></a>1.1.5习题答案</h5><p>无</p>
+<p>1.</p>
+<ol>
+<li>1.2 多线程原理_随机性打印结果</li>
+</ol>
+<h5 id="1-2-1知识概述"><a href="#1-2-1知识概述" class="headerlink" title="1.2.1知识概述"></a>1.2.1知识概述</h5><ul>
+<li>多线程原理_随机性打印结果</li>
+</ul>
+<h5 id="1-2-2视频详情"><a href="#1-2-2视频详情" class="headerlink" title="1.2.2视频详情"></a>1.2.2视频详情</h5><h5 id="1-2-3总结与补充"><a href="#1-2-3总结与补充" class="headerlink" title="1.2.3总结与补充"></a>1.2.3总结与补充</h5><h5 id="1-2-4课堂提问与练习"><a href="#1-2-4课堂提问与练习" class="headerlink" title="1.2.4课堂提问与练习"></a>1.2.4课堂提问与练习</h5><p> 无</p>
+<h5 id="1-2-5习题答案"><a href="#1-2-5习题答案" class="headerlink" title="1.2.5习题答案"></a>1.2.5习题答案</h5><p> 无</p>
+<p>1.</p>
+<ol>
+<li>1.3 多线程原理_多线程内存图解</li>
+</ol>
+<h5 id="1-3-1知识概述"><a href="#1-3-1知识概述" class="headerlink" title="1.3.1知识概述"></a>1.3.1知识概述</h5><ul>
+<li>每个线程都有自己独立的一块栈空间</li>
+</ul>
+<h5 id="1-3-2视频详情"><a href="#1-3-2视频详情" class="headerlink" title="1.3.2视频详情"></a>1.3.2视频详情</h5><h5 id="1-3-3总结与补充"><a href="#1-3-3总结与补充" class="headerlink" title="1.3.3总结与补充"></a>1.3.3总结与补充</h5><pre><code>    多线程执行时，在栈内存中，其实每一个执行线程都有一片自己所属的栈内存空间。进行方法的压栈和弹栈</code></pre><h5 id="1-3-4课堂提问与练习"><a href="#1-3-4课堂提问与练习" class="headerlink" title="1.3.4课堂提问与练习"></a>1.3.4课堂提问与练习</h5><p> 无</p>
+<h5 id="1-3-5习题答案"><a href="#1-3-5习题答案" class="headerlink" title="1.3.5习题答案"></a>1.3.5习题答案</h5><p> 无</p>
+<p>1.</p>
+<ol>
+<li>1.4 Thread类的常用方法_获取线程名称的方法</li>
+</ol>
+<h5 id="1-4-1知识概述"><a href="#1-4-1知识概述" class="headerlink" title="1.4.1知识概述"></a>1.4.1知识概述</h5><ul>
+<li>getName();</li>
+<li>currentThread.getName();</li>
+</ul>
+<h5 id="1-4-2视频详情"><a href="#1-4-2视频详情" class="headerlink" title="1.4.2视频详情"></a>1.4.2视频详情</h5><h5 id="1-4-3总结与补充"><a href="#1-4-3总结与补充" class="headerlink" title="1.4.3总结与补充"></a>1.4.3总结与补充</h5><p>public String getName() :获取当前线程名称。</p>
+<p>public static Thread currentThread() :返回对当前正在执行的线程对象的引用</p>
+<h5 id="1-4-4课堂提问与练习"><a href="#1-4-4课堂提问与练习" class="headerlink" title="1.4.4课堂提问与练习"></a>1.4.4课堂提问与练习</h5><p> 无</p>
+<h5 id="1-4-5习题答案"><a href="#1-4-5习题答案" class="headerlink" title="1.4.5习题答案"></a>1.4.5习题答案</h5><p> 无</p>
+<p>1.</p>
+<ol>
+<li>1.5 Thread类的常用方法_设置线程名称的方法</li>
+</ol>
+<h5 id="1-5-1知识概述"><a href="#1-5-1知识概述" class="headerlink" title="1.5.1知识概述"></a>1.5.1知识概述</h5><ul>
+<li>setName();</li>
+<li>new Thread(&quot;线程名字&quot;);</li>
+</ul>
+<h5 id="1-5-2视频详情"><a href="#1-5-2视频详情" class="headerlink" title="1.5.2视频详情"></a>1.5.2视频详情</h5><h5 id="1-5-3总结与补充"><a href="#1-5-3总结与补充" class="headerlink" title="1.5.3总结与补充"></a>1.5.3总结与补充</h5><p>public Thread(String name) :分配一个指定名字的新的线程对象</p>
+<p>public Thread(Runnable target,String name) :分配一个带有指定目标新的线程对象并指定名字</p>
+<p>public void setName(String name) : 为线程对象设置名字.</p>
+<h5 id="1-5-4课堂提问与练习"><a href="#1-5-4课堂提问与练习" class="headerlink" title="1.5.4课堂提问与练习"></a>1.5.4课堂提问与练习</h5><p> 无</p>
+<h5 id="1-5-5习题答案"><a href="#1-5-5习题答案" class="headerlink" title="1.5.5习题答案"></a>1.5.5习题答案</h5><p> 无</p>
+<h3 id="第二堂课"><a href="#第二堂课" class="headerlink" title="第二堂课"></a>第二堂课</h3><p>本节知识点：</p>
+<p>06_Thread类的常用方法_sleep</p>
+<p>07_创建多线程程序的第二种方式_实现Runnable接口</p>
+<p>08_Thread和Runnable的区别</p>
+<p>09_匿名内部类方式实现线程的创建</p>
+<p>视频时间：</p>
+<p> 21分28秒</p>
+<p>本节目标 ：</p>
+<ol>
+<li>掌握sleep方法的使用</li>
+<li>掌握实现Runnable接口开启线程的实现方式</li>
+<li>独立阐述两种开启线程的区别</li>
+<li>独立编写代码, 使用匿名内部类开启线程</li>
+</ol>
+<p>1.</p>
+<ol>
+<li>2.1Thread类的常用方法_sleep</li>
+</ol>
+<h5 id="2-1-1知识概述"><a href="#2-1-1知识概述" class="headerlink" title="2.1.1知识概述"></a>2.1.1知识概述</h5><ul>
+<li>sleep方法演示</li>
+</ul>
+<h5 id="2-1-2视频详情"><a href="#2-1-2视频详情" class="headerlink" title="2.1.2视频详情"></a>2.1.2视频详情</h5><h5 id="2-1-3总结与补充"><a href="#2-1-3总结与补充" class="headerlink" title="2.1.3总结与补充"></a>2.1.3总结与补充</h5><p>无</p>
+<h5 id="2-1-5习题答案"><a href="#2-1-5习题答案" class="headerlink" title="2.1.5习题答案"></a>2.1.5习题答案</h5><p>无</p>
+<p>1.</p>
+<ol>
+<li>2.2创建多线程程序的第二种方式_实现Runnable接口</li>
+</ol>
+<h5 id="2-2-1知识概述"><a href="#2-2-1知识概述" class="headerlink" title="2.2.1知识概述"></a>2.2.1知识概述</h5><ul>
+<li>开启线程的第二种方式</li>
+</ul>
+<h5 id="2-2-2视频详情"><a href="#2-2-2视频详情" class="headerlink" title="2.2.2视频详情"></a>2.2.2视频详情</h5><h5 id="2-2-3总结与补充"><a href="#2-2-3总结与补充" class="headerlink" title="2.2.3总结与补充"></a>2.2.3总结与补充</h5><ol>
+<li>定义Runnable接口的实现类，并重写该接口的run()方法，该run()方法的方法体同样是该线程的线程执行体。</li>
+<li>创建Runnable实现类的实例，并以此实例作为Thread的target来创建Thread对象，该Thread对象才是真正的线程对象。</li>
+<li>调用线程对象的start()方法来启动线程</li>
+</ol>
+<h5 id="2-2-4课堂提问与练习"><a href="#2-2-4课堂提问与练习" class="headerlink" title="2.2.4课堂提问与练习"></a>2.2.4课堂提问与练习</h5><p> 无</p>
+<h5 id="2-2-5习题答案"><a href="#2-2-5习题答案" class="headerlink" title="2.2.5习题答案"></a>2.2.5习题答案</h5><p> 无</p>
+<p>1.</p>
+<ol>
+<li>2.3Thread和Runnable的区别</li>
+</ol>
+<h5 id="2-3-1知识概述"><a href="#2-3-1知识概述" class="headerlink" title="2.3.1知识概述"></a>2.3.1知识概述</h5><ul>
+<li>两种开启线程的区别</li>
+</ul>
+<h5 id="2-3-2视频详情"><a href="#2-3-2视频详情" class="headerlink" title="2.3.2视频详情"></a>2.3.2视频详情</h5><h5 id="2-3-3总结与补充"><a href="#2-3-3总结与补充" class="headerlink" title="2.3.3总结与补充"></a>2.3.3总结与补充</h5><p> 实现Runnable接口创建多线程程序的好处:</p>
+<pre><code>    1.避免了单继承的局限性
+
+        一个类只能继承一个类(一个人只能有一个亲爹),类继承了Thread类就不能继 承其他的类
+
+        实现了Runnable接口,还可以继承其他的类,实现其他的接口
+
+    2.增强了程序的扩展性,降低了程序的耦合性(解耦)
+
+        实现Runnable接口的方式,把设置线程任务和开启新线程进行了分离(解耦)
+
+        实现类中,重写了run方法:用来设置线程任务
+
+        创建Thread类对象,调用start方法:用来开启新线程</code></pre><h5 id="2-3-4课堂提问与练习"><a href="#2-3-4课堂提问与练习" class="headerlink" title="2.3.4课堂提问与练习"></a>2.3.4课堂提问与练习</h5><pre><code>    无</code></pre><h5 id="2-3-5习题答案"><a href="#2-3-5习题答案" class="headerlink" title="2.3.5习题答案"></a>2.3.5习题答案</h5><p> 无</p>
+<p>1.</p>
+<ol>
+<li>2.4匿名内部类方式实现线程的创建</li>
+</ol>
+<h5 id="2-4-1知识概述"><a href="#2-4-1知识概述" class="headerlink" title="2.4.1知识概述"></a>2.4.1知识概述</h5><ul>
+<li>使用匿名内部类开启线程</li>
+</ul>
+<h5 id="2-4-2视频详情"><a href="#2-4-2视频详情" class="headerlink" title="2.4.2视频详情"></a>2.4.2视频详情</h5><h5 id="2-4-3总结与补充"><a href="#2-4-3总结与补充" class="headerlink" title="2.4.3总结与补充"></a>2.4.3总结与补充</h5><p><strong>2.4.4课堂提问与练习</strong></p>
+<pre><code>    无</code></pre><h5 id="2-4-5习题答案"><a href="#2-4-5习题答案" class="headerlink" title="2.4.5习题答案"></a>2.4.5习题答案</h5><p> 无</p>
+<h3 id="第三堂课"><a href="#第三堂课" class="headerlink" title="第三堂课"></a>第三堂课</h3><p>本节知识点：</p>
+<p>10_线程安全问题的概述</p>
+<p>11_线程安全问题的代码实现</p>
+<p>12_线程安全问题产生的原理</p>
+<p>13_解决线程安全问题_同步代码块</p>
+<p>视频时间:</p>
+<p>31分31秒</p>
+<p>本节目标 ：</p>
+<ol>
+<li>了解多线程程序共享资源的时候, 会有安全隐患</li>
+<li>独立编写售票案例代码</li>
+<li>理解线程安全问题的产生原理</li>
+<li>掌握同步代码块的使用</li>
+</ol>
+<p>1.</p>
+<ol>
+<li>3.1线程安全问题的概述</li>
+</ol>
+<h5 id="3-1-1知识概述"><a href="#3-1-1知识概述" class="headerlink" title="3.1.1知识概述"></a>3.1.1知识概述</h5><ul>
+<li>线程安全问题引入</li>
+</ul>
+<h5 id="3-1-2视频详情"><a href="#3-1-2视频详情" class="headerlink" title="3.1.2视频详情"></a>3.1.2视频详情</h5><h5 id="3-1-3总结与补充"><a href="#3-1-3总结与补充" class="headerlink" title="3.1.3总结与补充"></a>3.1.3总结与补充</h5><h5 id="3-1-4课堂提问与练习"><a href="#3-1-4课堂提问与练习" class="headerlink" title="3.1.4课堂提问与练习"></a>3.1.4课堂提问与练习</h5><p> 无</p>
+<h5 id="3-1-5习题答案"><a href="#3-1-5习题答案" class="headerlink" title="3.1.5习题答案"></a>3.1.5习题答案</h5><p> 无</p>
+<p>1.</p>
+<ol>
+<li>3.2线程安全问题的代码实现</li>
+</ol>
+<h5 id="3-2-1知识概述"><a href="#3-2-1知识概述" class="headerlink" title="3.2.1知识概述"></a>3.2.1知识概述</h5><ul>
+<li>多线程售票案例代码实现</li>
+</ul>
+<h5 id="3-2-2视频详情"><a href="#3-2-2视频详情" class="headerlink" title="3.2.2视频详情"></a>3.2.2视频详情</h5><h5 id="3-2-3总结与补充"><a href="#3-2-3总结与补充" class="headerlink" title="3.2.3总结与补充"></a>3.2.3总结与补充</h5><h5 id="3-2-4课堂提问与练习"><a href="#3-2-4课堂提问与练习" class="headerlink" title="3.2.4课堂提问与练习"></a>3.2.4课堂提问与练习</h5><p>无</p>
+<h5 id="3-2-5习题答案"><a href="#3-2-5习题答案" class="headerlink" title="3.2.5习题答案"></a>3.2.5习题答案</h5><p>无</p>
+<p>1.</p>
+<ol>
+<li>3.3线程安全问题产生的原理</li>
+</ol>
+<h5 id="3-3-1知识概述"><a href="#3-3-1知识概述" class="headerlink" title="3.3.1知识概述"></a>3.3.1知识概述</h5><ul>
+<li>画图分析线程安全问题所在</li>
+</ul>
+<h5 id="3-3-2视频详情"><a href="#3-3-2视频详情" class="headerlink" title="3.3.2视频详情"></a>3.3.2视频详情</h5><h5 id="3-3-3总结与补充"><a href="#3-3-3总结与补充" class="headerlink" title="3.3.3总结与补充"></a>3.3.3总结与补充</h5><h5 id="3-3-4课堂提问与练习"><a href="#3-3-4课堂提问与练习" class="headerlink" title="3.3.4课堂提问与练习"></a>3.3.4课堂提问与练习</h5><p>无</p>
+<h5 id="3-3-5习题答案"><a href="#3-3-5习题答案" class="headerlink" title="3.3.5习题答案"></a>3.3.5习题答案</h5><p> 无</p>
+<p>1.</p>
+<ol>
+<li>3.4解决线程安全问题_同步代码块</li>
+</ol>
+<h5 id="3-3-1知识概述-1"><a href="#3-3-1知识概述-1" class="headerlink" title="3.3.1知识概述"></a>3.3.1知识概述</h5><ul>
+<li>同步代码块解决线程安全问题</li>
+</ul>
+<h5 id="3-3-2视频详情-1"><a href="#3-3-2视频详情-1" class="headerlink" title="3.3.2视频详情"></a>3.3.2视频详情</h5><h5 id="3-3-3总结与补充-1"><a href="#3-3-3总结与补充-1" class="headerlink" title="3.3.3总结与补充"></a>3.3.3总结与补充</h5><p> 同步代码块： synchronized 关键字可以用于方法中的某个区块中，表示只对这个区块的资源实行互斥访问。</p>
+<p> 格式:</p>
+<pre><code>    synchronized(锁对象){
+
+        可能会出现线程安全问题的代码(访问了共享数据的代码)
+
+    }
+
+注意:
+
+    1.通过代码块中的锁对象,可以使用任意的对象
+
+    2.但是必须保证多个线程使用的锁对象是同一个
+
+    3.锁对象作用:
+
+        把同步代码块锁住,只让一个线程在同步代码块中执行</code></pre><h5 id="3-3-4课堂提问与练习-1"><a href="#3-3-4课堂提问与练习-1" class="headerlink" title="3.3.4课堂提问与练习"></a>3.3.4课堂提问与练习</h5><p>无</p>
+<h5 id="3-3-5习题答案-1"><a href="#3-3-5习题答案-1" class="headerlink" title="3.3.5习题答案"></a>3.3.5习题答案</h5><p> 无</p>
+<h3 id="第四堂课"><a href="#第四堂课" class="headerlink" title="第四堂课"></a>第四堂课</h3><p>本节知识点：</p>
+<p>14_同步技术的原理</p>
+<p>15_解决线程安全问题_同步方法</p>
+<p>16_静态同步方法</p>
+<p>17_解决线程安全问题_Lock锁</p>
+<p>视频时间：</p>
+<p>25分26秒</p>
+<p>本节目标 ：</p>
+<p> 理解同步技术的原理</p>
+<p> 掌握同步方法的使用</p>
+<p> 了解静态同步方法的使用</p>
+<p> 掌握Lock锁的使用方式</p>
+<h4 id="4-1-同步技术的原理"><a href="#4-1-同步技术的原理" class="headerlink" title="4.1 同步技术的原理"></a>4.1 同步技术的原理</h4><h5 id="4-1-1知识概述"><a href="#4-1-1知识概述" class="headerlink" title="4.1.1知识概述"></a>4.1.1知识概述</h5><ul>
+<li>同步技术的原理</li>
+</ul>
+<h5 id="4-1-2视频详情"><a href="#4-1-2视频详情" class="headerlink" title="4.1.2视频详情"></a>4.1.2视频详情</h5><h5 id="4-1-3总结与补充"><a href="#4-1-3总结与补充" class="headerlink" title="4.1.3总结与补充"></a>4.1.3总结与补充</h5><h5 id="4-1-4课堂提问与练习"><a href="#4-1-4课堂提问与练习" class="headerlink" title="4.1.4课堂提问与练习"></a>4.1.4课堂提问与练习</h5><p>无</p>
+<h5 id="4-1-5习题答案"><a href="#4-1-5习题答案" class="headerlink" title="4.1.5习题答案"></a>4.1.5习题答案</h5><p> 无</p>
+<h4 id="4-2-解决线程安全问题-同步方法"><a href="#4-2-解决线程安全问题-同步方法" class="headerlink" title="4.2 解决线程安全问题_同步方法"></a>4.2 解决线程安全问题_同步方法</h4><h5 id="4-2-1知识概述"><a href="#4-2-1知识概述" class="headerlink" title="4.2.1知识概述"></a>4.2.1知识概述</h5><ul>
+<li>同步方法 &amp; 同步方法的锁对象</li>
+</ul>
+<h5 id="4-2-2视频详情"><a href="#4-2-2视频详情" class="headerlink" title="4.2.2视频详情"></a>4.2.2视频详情</h5><h5 id="4-2-3总结与补充"><a href="#4-2-3总结与补充" class="headerlink" title="4.2.3总结与补充"></a>4.2.3总结与补充</h5><p> 同步方法:使用synchronized修饰的方法,就叫做同步方法,保证A线程执行该方法的时候,其他线程只能在方法外等着。</p>
+<h5 id="4-2-4课堂提问与练习"><a href="#4-2-4课堂提问与练习" class="headerlink" title="4.2.4课堂提问与练习"></a>4.2.4课堂提问与练习</h5><p>无</p>
+<h5 id="4-2-5习题答案"><a href="#4-2-5习题答案" class="headerlink" title="4.2.5习题答案"></a>4.2.5习题答案</h5><p> 无</p>
+<h4 id="4-3-静态同步方法"><a href="#4-3-静态同步方法" class="headerlink" title="4.3 静态同步方法"></a>4.3 静态同步方法</h4><h5 id="4-3-1知识概述"><a href="#4-3-1知识概述" class="headerlink" title="4.3.1知识概述"></a>4.3.1知识概述</h5><ul>
+<li><strong>静态同步方法</strong></li>
+</ul>
+<h5 id="4-3-2视频详情"><a href="#4-3-2视频详情" class="headerlink" title="4.3.2视频详情"></a>4.3.2视频详情</h5><h5 id="4-3-3总结与补充"><a href="#4-3-3总结与补充" class="headerlink" title="4.3.3总结与补充"></a>4.3.3总结与补充</h5><pre><code>    对于static方法,我们使用当前方法所在类的字节码对象(类名.class)。</code></pre><h5 id="4-3-4课堂提问与练习"><a href="#4-3-4课堂提问与练习" class="headerlink" title="4.3.4课堂提问与练习"></a>4.3.4课堂提问与练习</h5><p>无</p>
+<h5 id="4-3-5习题答案"><a href="#4-3-5习题答案" class="headerlink" title="4.3.5习题答案"></a>4.3.5习题答案</h5><p>  无</p>
+<h4 id="4-4-解决线程安全问题-Lock锁"><a href="#4-4-解决线程安全问题-Lock锁" class="headerlink" title="4.4 解决线程安全问题_Lock锁"></a>4.4 解决线程安全问题_Lock锁</h4><h5 id="4-4-1知识概述"><a href="#4-4-1知识概述" class="headerlink" title="4.4.1知识概述"></a>4.4.1知识概述</h5><ul>
+<li>lock方法, unlock方法</li>
+</ul>
+<h5 id="4-4-2视频详情"><a href="#4-4-2视频详情" class="headerlink" title="4.4.2视频详情"></a>4.4.2视频详情</h5><h5 id="4-4-3总结与补充"><a href="#4-4-3总结与补充" class="headerlink" title="4.4.3总结与补充"></a>4.4.3总结与补充</h5><p>public void lock() :加同步锁。<br>public void unlock() :释放同步锁</p>
+<h5 id="4-4-4课堂提问与练习"><a href="#4-4-4课堂提问与练习" class="headerlink" title="4.4.4课堂提问与练习"></a>4.4.4课堂提问与练习</h5><p>无</p>
+<h5 id="4-4-5习题答案"><a href="#4-4-5习题答案" class="headerlink" title="4.4.5习题答案"></a>4.4.5习题答案</h5><p> 无</p>
+<h3 id="第五堂课"><a href="#第五堂课" class="headerlink" title="第五堂课"></a>第五堂课</h3><p>本节知识点：</p>
+<p>18_线程状态概述</p>
+<p>19_等待唤醒案例分析</p>
+<p>20_等待唤醒案例代码实现</p>
+<p>21_Object类中wait带参方法和notifyAll方法</p>
+<p>视频时间：</p>
+<p>28分38秒</p>
+<p>本节目标 ：</p>
+<p> 了解API中线程的6种状态</p>
+<p> 理解等待唤醒实现线程通讯的思路</p>
+<p> 独立编写等待唤醒案例</p>
+<p> 了解wait带参方法和notifyAll方法的特点</p>
+<h4 id="5-1-线程状态概述"><a href="#5-1-线程状态概述" class="headerlink" title="5.1 线程状态概述"></a>5.1 线程状态概述</h4><h5 id="5-1-1知识概述"><a href="#5-1-1知识概述" class="headerlink" title="5.1.1知识概述"></a>5.1.1知识概述</h5><ul>
+<li>线程的6中状态</li>
+</ul>
+<h5 id="5-1-2视频详情"><a href="#5-1-2视频详情" class="headerlink" title="5.1.2视频详情"></a>5.1.2视频详情</h5><h5 id="5-1-3总结与补充"><a href="#5-1-3总结与补充" class="headerlink" title="5.1.3总结与补充"></a>5.1.3总结与补充</h5><h5 id="5-1-4课堂提问与练习"><a href="#5-1-4课堂提问与练习" class="headerlink" title="5.1.4课堂提问与练习"></a>5.1.4课堂提问与练习</h5><p>无</p>
+<h5 id="5-1-5习题答案"><a href="#5-1-5习题答案" class="headerlink" title="5.1.5习题答案"></a>5.1.5习题答案</h5><p>  无</p>
+<h4 id="5-2-等待唤醒案例分析"><a href="#5-2-等待唤醒案例分析" class="headerlink" title="5.2 等待唤醒案例分析"></a>5.2 等待唤醒案例分析</h4><h5 id="5-2-1知识概述"><a href="#5-2-1知识概述" class="headerlink" title="5.2.1知识概述"></a>5.2.1知识概述</h5><ul>
+<li>线程通讯案例分析</li>
+</ul>
+<h5 id="5-2-2视频详情"><a href="#5-2-2视频详情" class="headerlink" title="5.2.2视频详情"></a>5.2.2视频详情</h5><h5 id="5-2-3总结与补充"><a href="#5-2-3总结与补充" class="headerlink" title="5.2.3总结与补充"></a>5.2.3总结与补充</h5><h5 id="5-2-4课堂提问与练习"><a href="#5-2-4课堂提问与练习" class="headerlink" title="5.2.4课堂提问与练习"></a>5.2.4课堂提问与练习</h5><p>无</p>
+<h5 id="5-2-5习题答案"><a href="#5-2-5习题答案" class="headerlink" title="5.2.5习题答案"></a>5.2.5习题答案</h5><p> 无</p>
+<h4 id="5-3-等待唤醒案例代码实现"><a href="#5-3-等待唤醒案例代码实现" class="headerlink" title="5.3 等待唤醒案例代码实现"></a>5.3 等待唤醒案例代码实现</h4><h5 id="5-3-1知识概述"><a href="#5-3-1知识概述" class="headerlink" title="5.3.1知识概述"></a>5.3.1知识概述</h5><ul>
+<li>线程通讯代码实现</li>
+<li>wait方法</li>
+<li>notify方法</li>
+</ul>
+<h5 id="5-3-2视频详情"><a href="#5-3-2视频详情" class="headerlink" title="5.3.2视频详情"></a>5.3.2视频详情</h5><h5 id="5-3-3总结与补充"><a href="#5-3-3总结与补充" class="headerlink" title="5.3.3总结与补充"></a>5.3.3总结与补充</h5><p>等待唤醒案例:线程之间的通信</p>
+<pre><code>    创建一个顾客线程(消费者):告知老板要的包子的种类和数量,调用wait方法,放弃cpu的执行,进入到WAITING状态(无限等待)
+
+    创建一个老板线程(生产者):花了5秒做包子,做好包子之后,调用notify方法,唤醒顾客吃包子
+
+注意:
+
+    顾客和老板线程必须使用同步代码块包裹起来,保证等待和唤醒只能有一个在执行
+
+    同步使用的锁对象必须保证唯一
+
+    只有锁对象才能调用wait和notify方法
+
+Obejct类中的方法
+
+void wait()
+
+      在其他线程调用此对象的 notify() 方法或 notifyAll() 方法前，导致当前线程等待。
+
+void notify()
+
+    唤醒在此对象监视器上等待的单个线程。会继续执行wait方法之后的代码</code></pre><h5 id="5-3-4课堂提问与练习"><a href="#5-3-4课堂提问与练习" class="headerlink" title="5.3.4课堂提问与练习"></a>5.3.4课堂提问与练习</h5><p>无</p>
+<h5 id="5-3-5习题答案"><a href="#5-3-5习题答案" class="headerlink" title="5.3.5习题答案"></a>5.3.5习题答案</h5><p>  无</p>
+<h4 id="5-4-Object类中wait带参方法和notifyAll方法"><a href="#5-4-Object类中wait带参方法和notifyAll方法" class="headerlink" title="5.4  Object类中wait带参方法和notifyAll方法"></a>5.4  Object类中wait带参方法和notifyAll方法</h4><h5 id="5-3-1知识概述-1"><a href="#5-3-1知识概述-1" class="headerlink" title="5.3.1知识概述"></a>5.3.1知识概述</h5><ul>
+<li>Object类中wait带参方法和notifyAll方法</li>
+</ul>
+<h5 id="5-3-2视频详情-1"><a href="#5-3-2视频详情-1" class="headerlink" title="5.3.2视频详情"></a>5.3.2视频详情</h5><h5 id="5-3-3总结与补充-1"><a href="#5-3-3总结与补充-1" class="headerlink" title="5.3.3总结与补充"></a>5.3.3总结与补充</h5><p>进入到TimeWaiting(计时等待)有两种方式</p>
+<pre><code>1.使用sleep(long m)方法,在毫秒值结束之后,线程睡醒进入到Runnable/Blocked状态
+
+2.使用wait(long m)方法,wait方法如果在毫秒值结束之后,还没有被notify唤醒,就会自动醒来,线程睡醒进入到Runnable/Blocked状态
+
+唤醒的方法:
+
+     void notify() 唤醒在此对象监视器上等待的单个线程。
+
+     void notifyAll() 唤醒在此对象监视器上等待的所有线程。</code></pre><h5 id="5-3-4课堂提问与练习-1"><a href="#5-3-4课堂提问与练习-1" class="headerlink" title="5.3.4课堂提问与练习"></a>5.3.4课堂提问与练习</h5><p>无</p>
+<h5 id="5-3-5习题答案-1"><a href="#5-3-5习题答案-1" class="headerlink" title="5.3.5习题答案"></a>5.3.5习题答案</h5><p> 无</p>
+
+            </div>
+            <hr>
+            <div>
+              <p>
+                
+                  <span>
+                <i class="iconfont icon-inbox"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Java/">Java</a>
+                      &nbsp;
+                    
+                      <a class="hover-with-bg" href="/categories/Java/lamda/">lamda</a>
+                      &nbsp;
+                    
+                  </span>&nbsp;&nbsp;
+                
+                
+                  <span>
+                <i class="iconfont icon-tag"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Java/">Java</a>
+                    
+                  </span>
+                
+              </p>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2017/04/21/day07%E3%80%90%E7%BA%BF%E7%A8%8B%E6%B1%A0%E3%80%81Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E3%80%91(1)/">
+                        <i class="fa fa-chevron-left"></i>
+                        <span class="hidden-mobile">day07【线程池、Lambda表达式】(1)</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2017/04/18/day05%20%E3%80%90%E5%BC%82%E5%B8%B8%E3%80%81%E7%BA%BF%E7%A8%8B%E3%80%91/">
+                        <span class="hidden-mobile">day05 【异常、线程】</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="fa fa-chevron-right"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+              
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc-start"></div>
+<div id="toc">
+  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+      <i class="iconfont icon-love"></i>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener">陕ICP备20005151号-1</a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
+<script  src="/js/main.js" ></script>
+
+
+  <script  src="/js/lazyload.js" ></script>
+
+
+
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var navHeight = $('#navbar').height();
+      var toc = $('#toc');
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+      var tocLimMax = 2 * boardTop + boardCtn.height();
+
+      $(window).scroll(function () {
+        var tocLimMin = $('#toc-start').offset().top - navHeight;
+        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
+
+        if (tocLimMin <= scroH && scroH <= tocLimMax) {
+          toc.css({
+            'display': 'block',
+            'position': 'fixed',
+            'top': navHeight,
+          });
+        } else if (scroH <= tocLimMin) {
+          toc.css({
+            'position': '',
+            'top': '',
+          });
+        } else if (scroH > tocLimMax) {
+          toc.css('display', 'none');
+        }
+      });
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc > p').css('visibility', 'visible');
+      }
+      var offset = boardCtn.css('margin-right')
+      $('#toc-ctn').css({
+        'right': offset
+      })
+    });
+  </script>
+
+
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+
+<!-- Plugins -->
+
+
+
+  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "day06 【线程、同步】教案&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
