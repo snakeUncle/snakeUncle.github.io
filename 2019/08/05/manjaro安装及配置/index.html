@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="SnakeUncle">
   <meta name="keywords" content="">
-  <title>「Dream」好想快点删掉啊!!! - SnakeUncle</title>
+  <title>「Linux」Manjaro最小安装后配置 - SnakeUncle</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
@@ -128,7 +128,7 @@
               
                 <p class="mt-3 post-meta">
                   <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-                  Monday, April 13th 2020, 11:48 pm
+                  Monday, August 5th 2019, 12:09 pm
                 </p>
               
 
@@ -137,7 +137,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    17 字
+                    545 字
                   </span>
                 
 
@@ -145,7 +145,7 @@
                   
                   <span class="post-meta">
                       <i class="far fa-clock"></i>
-                      1 分钟
+                      2 分钟
                   </span>
                 
 
@@ -173,7 +173,19 @@
           <div class="post-content mx-auto" id="post">
             
             <div class="markdown-body">
-              <h2 id="好想删掉你们"><a href="#好想删掉你们" class="headerlink" title="好想删掉你们"></a>好想删掉你们</h2><pre><code>蛋蛋疼,怀疑人生,生无可恋</code></pre><p><img src="/img/bicycle.jpg" srcset="/img/loading.gif" alt="avatar"></p>
+              <p>Manjaro最小安装后配置</p>
+<p>1.使用archlinuxcn和antergos镜像<br>yaourt改用清华AUR镜像<br>在~/.yaourtrc文件中加入<br>AURURL=”<a href="https://aur.tuna.tsinghua.edu.cn&quot;" target="_blank" rel="noopener">https://aur.tuna.tsinghua.edu.cn&quot;</a><br>增加archlinuxcn库和antergos库<br>在/etc/pacman.conf中加入<br>[archlinuxcn]<br>SigLevel = TrustAll<br>Server = <a href="https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch</a><br>[antergos]<br>SigLevel = TrustAll<br>Server = <a href="https://mirrors.tuna.tsinghua.edu.cn/antergos/$repo/$arch" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/antergos/$repo/$arch</a></p>
+<p>2.改用中科大AUR镜像<br>[archlinuxcn]<br>#The Chinese Arch Linux communities packages.<br>SigLevel = Optional TrustAll<br>Server   = <a href="https://mirrors.ustc.edu.cn/archlinuxcn/$arch" target="_blank" rel="noopener">https://mirrors.ustc.edu.cn/archlinuxcn/$arch</a></p>
+<p>3.sudo pacman-mirrors -i -c China -m rank<br>弹窗选择时间最少的</p>
+<p>安装中文字体<br>我使用的是manjaro最小安装，安装之后中文字体无法正常显示。需要首先安装中文字体。我使用的是文泉驿的字体。</p>
+<p>sudo pacman -S wqy-bitmapfont<br>sudo pacman -S wqy-microhei<br>sudo pacman -S wqy-zenhei<br>安装Chrome浏览器<br>sudo pacman -S google-chrome<br>安装wps<br>sudo pacman -S wps-office<br>sudo pacman -S ttf-wps-fonts #安装wps确实的字体<br>安装Google Chrome<br>sudo pachman -S google-chrome<br>安装网易音乐云<br>sudo pacman -S netease-cloud-music<br>安装搜狗输入法<br>sudo pacman -S fcitx-sogoupinyin<br>sudo pacman -S fcitx-im<br>sudo pacman -S fcitx-configtool</p>
+<p>然后对输入法进行配置，在/etc/environment文件中写入下面的内容：</p>
+<p>export GTK_IM_MODULE=fcitx<br>export QT_IM_MODULE=fcitx<br>export XMODIFIERS=”@im=fcitx”<br>安装R语言<br>R语言我使用的是Microsoft R Open，自带Intel的MKL，虽然我的CPU是AMD的Ryzen的处理器，也一样给力。因为Linux下的R很多时候需要下载源码在本地编译，建议安装gcc和gfortran。</p>
+<p>sudo pacman -S microsoft-r-open<br>sudo pacman -S gcc<br>sudo pacman -S gcc-fortran<br>安装Rstudio<br>安装Rstudio之后会出现在括号之后光标不同步的现象，更改Rstudio的默认字体即可。</p>
+<p>sudo pacman -S rstudio-desktop-bin<br>安装Miniconda<br>首先到清华TUNA下载最新版本，然后在本地运行。</p>
+<p>./Miniconda3-latest-Linux-x86_64.sh<br>默认安装到/home目录，方便管理。添加清华TUNA的源，更新conda。可以在~/.condarc中删掉- defaults项，可以速度更快。但不建议添加TUNA中的conda-forge源，因为某些程序使用了rpy2会出现包依赖错误。</p>
+<p>conda config –add channels <a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</a><br>conda config –add channels <a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</a><br>conda config –add channels <a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r/" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r/</a><br>conda config –add channels <a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/</a><br>conda config –set show_channel_urls yes</p>
+<p>引用:<br><a href="https://www.cnblogs.com/elinuxboy/p/10123877.html" target="_blank" rel="noopener">https://www.cnblogs.com/elinuxboy/p/10123877.html</a></p>
 
             </div>
             <hr>
@@ -183,10 +195,7 @@
                   <span>
                 <i class="iconfont icon-inbox"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Java/">Java</a>
-                      &nbsp;
-                    
-                      <a class="hover-with-bg" href="/categories/Java/%E9%9D%A2%E8%AF%95/">面试</a>
+                      <a class="hover-with-bg" href="/categories/linux/">linux</a>
                       &nbsp;
                     
                   </span>&nbsp;&nbsp;
@@ -195,7 +204,7 @@
                   <span>
                 <i class="iconfont icon-tag"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Java/">Java</a>
+                      <a class="hover-with-bg" href="/tags/linux/">linux</a>
                     
                   </span>
                 
@@ -208,9 +217,9 @@
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2020/04/15/20200417/">
+                      <a href="/2019/08/05/Pacman%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/">
                         <i class="fa fa-chevron-left"></i>
-                        <span class="hidden-mobile">「Pandownload」我不是盘神</span>
+                        <span class="hidden-mobile">「Linux」Pacman常用指令</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -218,8 +227,8 @@
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2020/04/13/%E9%80%9A%E8%BF%87%E7%A7%98%E9%92%A5%E6%96%87%E4%BB%B6SSH%E8%BF%9E%E6%8E%A5%E4%BA%91ECS/">
-                        <span class="hidden-mobile">「云服务」通过秘钥文件SSH连接云ECS</span>
+                      <a href="/2019/02/26/github%E5%81%9AMarkdown%E5%9B%BE%E5%BA%8A/">
+                        <span class="hidden-mobile">「图床」github和阿里OSS做Markdown图床</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="fa fa-chevron-right"></i>
                       </a>
@@ -400,7 +409,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "「Dream」好想快点删掉啊!!!&nbsp;",
+        "「Linux」Manjaro最小安装后配置&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
