@@ -1,422 +1,438 @@
 <!DOCTYPE html>
-<html lang="en">
-
-
-
-
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<!--<![endif]-->
 
 <head>
-  <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
-  <link rel="icon" type="image/png" href="/img/favicon.png">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  
-  <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="">
-  <meta name="author" content="SnakeUncle">
-  <meta name="keywords" content="">
   <title>SnakeUncle</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="SnakeUncle">
+    <meta name="author" content="SnakeUncle">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
-<link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
-<link  rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css" />
-<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css" />
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+    <link rel="alternate" href="/atom.xml" title="SnakeUncle" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+    
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
 
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
 
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
 
-  <link  rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css" />
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-
-<!-- 自定义样式保持在最底部 -->
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
 
   
-<link rel="stylesheet" href="/css/bilibili.css#%20%E6%8C%87%E5%AE%9A%E8%87%AA%E5%AE%9A%E4%B9%89%20css%20%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84%EF%BC%8C%E8%B7%AF%E5%BE%84%E6%98%AF%E7%9B%B8%E5%AF%B9%20source%20%E7%9B%AE%E5%BD%95%EF%BC%8C%E5%A6%82%20/css/custom.css">
+  
+  
 
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
 
+<!--
+<body class="home-template">
+-->
+<body id="index" class="lightnav animsition">
 
-<meta name="generator" content="Hexo 4.2.0"></head>
+      <!-- ============================ Off-canvas navigation =========================== -->
 
-
-<body>
-  <header style="height: 100vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>SnakeUncle</strong>&nbsp;</a>
-
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-          <li class="nav-item">
-            <a class="nav-link" href="/">音忍村</a>
-          </li>
-        
-          
-          
-          
-          
-          <li class="nav-item">
-            <a class="nav-link" href="/archives/">者之书</a>
-          </li>
-        
-          
-          
-          
-          
-          <li class="nav-item">
-            <a class="nav-link" href="/categories/">分类</a>
-          </li>
-        
-          
-          
-          
-          
-          <li class="nav-item">
-            <a class="nav-link" href="/tags/">标签</a>
-          </li>
-        
-          
-          
-          
-          
-          <li class="nav-item">
-            <a class="nav-link" href="/about/">关于</a>
-          </li>
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-</nav>
-
-    <div class="view intro-2" id="background" parallax=true
-         style="background: url('/img/default.png') no-repeat center center;
-           background-size: cover;">
-      <div class="full-bg-img">
-        <div class="mask rgba-black-light flex-center">
-          <div class="container text-center white-text fadeInUp">
-            <span class="h2" id="subtitle">
-              
-            </span>
-
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            <li><a href="/archives" class="animsition-link" title="archive">archives</a></li>
+            <!-- Dropdown Menu -->
+			 
+            <li>
+                <a class="sb-toggle-submenu">Works<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                        <li><a href="/" target="_BLANK" class="animsition-link">AAA</a></li>
+                    
+                        <li><a href="/atom.xml" target="_BLANK" class="animsition-link">BBB</a></li>
+                    
+                </ul>
+            </li>
             
-          </div>
+            
+        	<li>
+        		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
+            	<ul class="sb-submenu">
+				  	
+				    <li><a href="/categories/Hexo/" class="animsition-link">Hexo<small>(2)</small></a></li>
+				    
+				    <li><a href="/categories/Java/" class="animsition-link">Java<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/Java/Pandownload/" class="animsition-link">Pandownload<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/Java/Tool/" class="animsition-link">Tool<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/Tool/" class="animsition-link">Tool<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/yun/aliyun/" class="animsition-link">aliyun<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/个人/comic/" class="animsition-link">comic<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/github/" class="animsition-link">github<small>(2)</small></a></li>
+				    
+				    <li><a href="/categories/linux/" class="animsition-link">linux<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/yun/" class="animsition-link">yun<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/个人/" class="animsition-link">个人<small>(2)</small></a></li>
+				    
+				    <li><a href="/categories/视野/" class="animsition-link">视野<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/Java/面试/" class="animsition-link">面试<small>(1)</small></a></li>
+				    
+				</ul>
+        	</li>
+			
+            
+            <li>
+                <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                    <li><a href="http://go.kieran.top/" target="_blank" rel="noopener" class="animsition-link">Kieran</a></li>
+                    
+                    <li><a href="http://domain.com/" target="_blank" rel="noopener" class="animsition-link">Name</a></li>
+                    
+                </ul>
+            </li>
+            
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu secondary">
+            
+            <li><a href="/about.html" class="animsition-link" title="about">About</a></li>
+            <li><a href="/atom.xml" class="animsition-link" title="rss">RSS</a></li>
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
 
-          
-            <div class="scroll-down-bar">
-              <i class="fas fa-angle-down scroll-down-arrow"></i>
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="/img/logo.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">SnakeUncle</a></li>
+                            <li class="nolink"><span>Always </span>Creative.</li>
+                            
+                            <li><a href="https://snakeuncle.github.io/" title="Github" target="_blank"><i class="icon-github"></i></a></li>
+                            
+                            
+                            
+                            
+                            
+                            <li class="nolink"><span>Welcome!</span></li>
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
             </div>
-          
+            <!-- // .navbar-inner -->
         </div>
-      </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+
+      <!-- ============================ Hero Image =========================== -->
+
+<section id="hero" class="scrollme">
+    <div class="container-fluid element-img" style="background: url(/img/bg_img.jpg) no-repeat center center fixed;background-size: cover">
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
+                <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
+                    <div>
+                        
+                        <h2>YOU'VE MADE A <span>BRAVE</span> DECISION, WELCOME.</h2>
+                        <p></p>
+                        
+                        <h2></h2>
+                        <p>每一个不曾起舞的日子都是对生命的辜负。</p>
+                        
+
+                    </div>
+                </div>
+            </div>
+            <!-- // .col-md-12 -->
+        </div>
+        <div class="herofade beige-dk"></div>
     </div>
-  </header>
+</section>
 
-  <main>
-    
-      <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board"
-          style=margin-top:0>
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
+<!-- Height spacing helper -->
+<div class="heightblock"></div>
+<!-- // End height spacing helper -->
 
+<!-- ============================ END Hero Image =========================== -->
+<!-- ============================ Content =========================== -->
 
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto">
-        <a href="/2018/08/06/%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E6%80%8E%E4%B9%88%E4%BD%BF%E7%94%A8%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" target="_self">
-          <img src="/img/aliyunlogo.jpg" alt="「云服务」手把手教你使用阿里云"
-               class="index-img img-fluid rounded index-thumbnails">
-        </a>
-      </div>
-    
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a href="/2018/08/06/%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E6%80%8E%E4%B9%88%E4%BD%BF%E7%94%A8%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/">
-        <p class="h4 index-header">「云服务」手把手教你使用阿里云</p>
-      </a>
-
-      <a href="/2018/08/06/%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E6%80%8E%E4%B9%88%E4%BD%BF%E7%94%A8%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/">
+<section id="intro">
+    <div class="container">
         
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2018/08/06/手把手教你怎么使用云服务器/">「云服务」手把手教你使用阿里云</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2018-08-06T10:08:08.000Z" itemprop="datePublished">
+          2018-08-06
+      </time>
+    
+    
+    | 
+    <a href='/tags/yun/'>yun</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        引用:https://mp.weixin.qq.com/s?__biz=MzI4Njg5MDA5NA==&amp;mid=2247485868&amp;idx=1&amp;sn=8ce3d3fc332bab1b5c725b2a7ff323b2&amp;chksm=ebd748addca0c1bb784985997f91b9f6bdb8d1578985691ce0bb0acb271a0d2a62330bb1593b&amp;scene=2
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2018/08/06/手把手教你怎么使用云服务器/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
         
-          
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2018/08/06/将hexo部署到阿里云/">「云服务」将hexo部署到阿里云</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2018-08-06T03:08:08.000Z" itemprop="datePublished">
+          2018-08-06
+      </time>
+    
+    
+    | 
+    <a href='/tags/yun/'>yun</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        将Hexo部署到阿里云轻量服务器（保姆级教程）最后一步:先切换到git用户下,在修改权限1 前言作为有梦想的，有追求的程序员，有一个自己的个人博客简直就是必须品。你可以选择wordpress这种平台，直接使用，在任何地方只要有网络就能写博客。还可以选择hexo这种静态博客，但是发文章就没有那么随心所欲了，要在你部署的电脑上写才行。
+本人之前使用的是hexo+github pages这种方式搭建博客，简单方便，感兴趣的同学可以看我之前写的
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2018/08/06/将hexo部署到阿里云/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
         
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">引用:https://mp.weixin.qq.com/s?__biz=MzI4Njg5MDA5NA==&amp;mid=2247485868&amp;idx=1&amp;sn=8ce3d3fc332bab1b5c725b2a7ff323b2&amp;chksm=ebd748addca0c1bb784985997f91b9f6bdb8d1578985691ce0bb0acb271a0d2a62330bb1593b&amp;scene=21#wechat_redirect
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2018/08/06/通过秘钥文件SSH连接云ECS/">「云服务」通过秘钥文件SSH连接云ECS</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2018-08-06T00:08:08.000Z" itemprop="datePublished">
+          2018-08-06
+      </time>
+    
+    
+    | 
+    <a href='/tags/yun/'>yun</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        引用:https://yq.aliyun.com/articles/5184
 注意事项配置mysql:
-检查系统是否已经有mysql用户，如果没有则创建[root@localhost mysql-5.6</div>
+
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2018/08/06/通过秘钥文件SSH连接云ECS/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
         </div>
-      </a>
-
-      <div class="index-btm">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2018-08-06&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/yun/">yun</a>&nbsp;
-          
-            <a href="/categories/yun/aliyun/">aliyun</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/yun/">yun</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2018/08/05/将文章发布到hexo博客/">「Hexo」将文章发布到hexo博客</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2018-08-05T10:09:35.000Z" itemprop="datePublished">
+          2018-08-05
+      </time>
     
     
-      <div class="col-12 col-md-4 m-auto">
-        <a href="/2018/08/06/%E5%B0%86hexo%E9%83%A8%E7%BD%B2%E5%88%B0%E9%98%BF%E9%87%8C%E4%BA%91/" target="_self">
-          <img src="/img/aliyunlogo.jpg" alt="「云服务」将hexo部署到阿里云"
-               class="index-img img-fluid rounded index-thumbnails">
-        </a>
-      </div>
-    
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a href="/2018/08/06/%E5%B0%86hexo%E9%83%A8%E7%BD%B2%E5%88%B0%E9%98%BF%E9%87%8C%E4%BA%91/">
-        <p class="h4 index-header">「云服务」将hexo部署到阿里云</p>
-      </a>
-
-      <a href="/2018/08/06/%E5%B0%86hexo%E9%83%A8%E7%BD%B2%E5%88%B0%E9%98%BF%E9%87%8C%E4%BA%91/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">将Hexo部署到阿里云轻量服务器（保姆级教程）最后一步:先切换到git用户下,在修改权限1 前言作为有梦想的，有追求的程序员，有一个自己的个人博客简直就是必须品。你可以选择wordpress这种平台，直接使用，在任何地方只要有网络就能写博客。还可以选择hexo这种静态博客，但是发文章就没有那么随心所欲了，要在你部署的电脑上写才行。
-本人之前使用的是hexo+github pages这种方式搭建博客，简单方便，感兴趣的同学可以看我之前写的这篇文章：Hexo+github pages搭建个人独立网站，绑定域名全教程
-由于github是在国外的，访问速度确实慢了一些，体验有些不好。正巧上学的时候用学</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2018-08-06&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/yun/">yun</a>&nbsp;
-          
-            <a href="/categories/yun/aliyun/">aliyun</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/yun/">yun</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
+    | 
+    <a href='/tags/Hexo/'>Hexo</a>
     
     
-      <div class="col-12 col-md-4 m-auto">
-        <a href="/2018/08/06/%E9%80%9A%E8%BF%87%E7%A7%98%E9%92%A5%E6%96%87%E4%BB%B6SSH%E8%BF%9E%E6%8E%A5%E4%BA%91ECS/" target="_self">
-          <img src="/img/aliyunlogo.jpg" alt="「云服务」通过秘钥文件SSH连接云ECS"
-               class="index-img img-fluid rounded index-thumbnails">
-        </a>
-      </div>
-    
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a href="/2018/08/06/%E9%80%9A%E8%BF%87%E7%A7%98%E9%92%A5%E6%96%87%E4%BB%B6SSH%E8%BF%9E%E6%8E%A5%E4%BA%91ECS/">
-        <p class="h4 index-header">「云服务」通过秘钥文件SSH连接云ECS</p>
-      </a>
-
-      <a href="/2018/08/06/%E9%80%9A%E8%BF%87%E7%A7%98%E9%92%A5%E6%96%87%E4%BB%B6SSH%E8%BF%9E%E6%8E%A5%E4%BA%91ECS/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">引用:https://yq.aliyun.com/articles/5184
-注意事项配置mysql:
-</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2018-08-06&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/yun/">yun</a>&nbsp;
-          
-            <a href="/categories/yun/aliyun/">aliyun</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/yun/">yun</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto">
-        <a href="/2018/08/05/%E5%B0%86%E6%96%87%E7%AB%A0%E5%8F%91%E5%B8%83%E5%88%B0hexo%E5%8D%9A%E5%AE%A2/" target="_self">
-          <img src="/img/2017-01-05.jpg" alt="「Hexo」将文章发布到hexo博客"
-               class="index-img img-fluid rounded index-thumbnails">
-        </a>
-      </div>
-    
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a href="/2018/08/05/%E5%B0%86%E6%96%87%E7%AB%A0%E5%8F%91%E5%B8%83%E5%88%B0hexo%E5%8D%9A%E5%AE%A2/">
-        <p class="h4 index-header">「Hexo」将文章发布到hexo博客</p>
-      </a>
-
-      <a href="/2018/08/05/%E5%B0%86%E6%96%87%E7%AB%A0%E5%8F%91%E5%B8%83%E5%88%B0hexo%E5%8D%9A%E5%AE%A2/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">将文章发布到hexo博客
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        将文章发布到hexo博客
 1.将内容写入 markdown.md 文件；然后找到这个md文件，把它复制到你hexo博客文件夹 中 source 下的 _posts 中，默认只有一个 hello-world.md；
 2.复制完之后然后使用文本编辑器打开它，在第一行加上title，内容自定title: this is my first blog  
-3.接着在你博客站点文件夹下右键空白处，选择Git Bash Here，输入 hexo g (完整命令为hexo generate)，用于生成静态文件
-4 然后 输入 hexo s(完整命令为hexo server)，用于启动服务器，主要用来本地预览；</div>
+3.接着在你博客站点文件夹下右键空白处，选择Git Bash Here，输入 hexo g 
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2018/08/05/将文章发布到hexo博客/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
         </div>
-      </a>
-
-      <div class="index-btm">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2018-08-05&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Hexo/">Hexo</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Hexo/">Hexo</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2018/08/05/使用Github Pages+Hexo搭建博客/">「Hexo」使用Github Pages+Hexo搭建博客</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2018-08-05T09:09:35.000Z" itemprop="datePublished">
+          2018-08-05
+      </time>
     
     
-      <div class="col-12 col-md-4 m-auto">
-        <a href="/2018/08/05/%E4%BD%BF%E7%94%A8Github%20Pages+Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" target="_self">
-          <img src="/img/2017-01-05.jpg" alt="「Hexo」使用Github Pages+Hexo搭建博客"
-               class="index-img img-fluid rounded index-thumbnails">
-        </a>
-      </div>
+    | 
+    <a href='/tags/github/'>github</a>,
     
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a href="/2018/08/05/%E4%BD%BF%E7%94%A8Github%20Pages+Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">
-        <p class="h4 index-header">「Hexo」使用Github Pages+Hexo搭建博客</p>
-      </a>
+    <a href='/tags/Hexo/'>Hexo</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        引用https://www.jianshu.com/p/856aaace865ahttps://www.jianshu.com/p/7dcd97c8e0e3
 
-      <a href="/2018/08/05/%E4%BD%BF%E7%94%A8Github%20Pages+Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">引用https://www.jianshu.com/p/856aaace865ahttps://www.jianshu.com/p/7dcd97c8e0e3
-</div>
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2018/08/05/使用Github Pages+Hexo搭建博客/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
         </div>
-      </a>
-
-      <div class="index-btm">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2018-08-05&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/github/">github</a>&nbsp;
-          
-            <a href="/categories/Hexo/">Hexo</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/github/">github</a>&nbsp;
-          
-            <a href="/tags/Hexo/">Hexo</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2018/06/18/常用工具汇总/">「Tool」常用工具汇总</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2018-06-17T18:08:06.000Z" itemprop="datePublished">
+          2018-06-18
+      </time>
     
     
-      <div class="col-12 col-md-4 m-auto">
-        <a href="/2018/06/18/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E6%B1%87%E6%80%BB/" target="_self">
-          <img src="/img/example.jpg" alt="「Tool」常用工具汇总"
-               class="index-img img-fluid rounded index-thumbnails">
-        </a>
-      </div>
+    | 
+    <a href='/tags/tool/'>tool</a>
     
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a href="/2018/06/18/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E6%B1%87%E6%80%BB/">
-        <p class="h4 index-header">「Tool」常用工具汇总</p>
-      </a>
-
-      <a href="/2018/06/18/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E6%B1%87%E6%80%BB/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        
 「Tool」常用工具汇总PC:(何必来回折腾,工具而已)
 
 IDEA(吃饭的家伙)
@@ -445,214 +461,102 @@ Foxit Reader
 
 
 
-</div>
-        </div>
-      </a>
 
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2018-06-18&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Tool/">Tool</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/tool/">tool</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-
-
-  <nav aria-label="index posts navigation">
-    <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-    </span>
-  </nav>
-  
-  <script>
-    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
-      ele.href += '#board';
-    }
-  </script>
-
-
-
-              </div>
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2018/06/18/常用工具汇总/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
             </div>
-          </div>
         </div>
-      </div>
-    
-  </main>
-
-  
-    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
-      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
-    </a>
-  
-
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v"
-                 for="local-search-input">keyword</label>
+        
+        <nav class="pagination" role="pagination">
+          <a class="pull-left" href="/">← Newer Posts</a>
+          
+        </nav>
+    </div>
+</section>
+<section id="statement">
+    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
+        <div class="row">
+            <p>虽然还没想好写点什么，但是总觉得这里放句话比较和谐。</p>
         </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
     </div>
-  </div>
-</div>
-  
+</section>
+<!-- ============================ END Content =========================== -->
 
-  
+      
+<!-- ============================ Footer =========================== -->
 
-  
-
-  <footer class="mt-5">
-  <div class="text-center py-3">
-    <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
-      <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
-      <i class="iconfont icon-love"></i>
-      <a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener">陕ICP备20005151号-1</a>
-    </div>
-    
-
-    
-
-    
-  </div>
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By SnakeUncle. All Rights Reserved.
+                </p>
+                <p>Theme By <a href="//go.kieran.top" target="_blank" rel="noopener" style="color: #767D84">Kieran</a></p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://snakeuncle.github.io/" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    
+                    
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
 </footer>
 
-<!-- SCRIPTS -->
-<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
-<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
-<script  src="/js/main.js" ></script>
-
-
-  <script  src="/js/lazyload.js" ></script>
-
-
-
-
-
-  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
-  <script  src="/js/clipboard-use.js" ></script>
-
-
-
-
-
-
-
-
-<!-- Plugins -->
-
-
-
-  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
-  <script>
-    $(document).ready(function () {
-      $('pre').addClass('prettyprint  linenums');
-      prettyPrint();
-    })
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
-  <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "虽 千 万 里 , 吾 往 矣 !!!&nbsp;",
-      ],
-      cursorChar: "_",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "hover",
-      
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
     };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
-    }
-    anchors.add(res.join(", "))
-  </script>
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$('#intro').find('img').each(function(){
+  var alt = this.alt;
+
+  if (alt){
+    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+  }
+
+  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+});
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
 
 
 
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      getSearchFile(path);
-      this.onclick = null
-    }
-  </script>
-
-
-
-  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
-  <script>
-    $("#post img:not(.no-zoom img, img[no-zoom])").each(
-      function () {
-        var element = document.createElement("a");
-        $(element).attr("data-fancybox", "images");
-        $(element).attr("href", $(this).attr("src"));
-        $(this).wrap(element);
-      }
-    );
-  </script>
-
-
-
-
-
-
-
-
-
-
-
-
+      
 </body>
 </html>
